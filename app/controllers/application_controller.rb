@@ -1,14 +1,19 @@
-require_relative "../../config/environment"
-require_relative "../models/tweet.rb"
-class ApplicationController < Sinatra::Base
-  
-  set :views, "app/views"
-  set :public, "public"
-  
-  get "/" do
 
-    erb :tweets
+require './config/environment'
+require './app/models/tweet'
+require 'pry'
+
+class ApplicationController < Sinatra::Base
+
+  configure do
+    set :public_folder, 'public'
+    set :views, 'app/views'
   end
 
-  
+  get '/' do
+
+    erb :index
+  end
+
+
 end
